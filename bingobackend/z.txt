@@ -1,0 +1,12 @@
+flag | action
+-------------
+-1   - Error
+0    - craete game
+1    - game craeted
+2    - player joined
+3    - Start game
+4    - timer (add numbers)
+5    - timer finsished 
+12   - get matrix
+20   - u r turn
+25   - update the game state
