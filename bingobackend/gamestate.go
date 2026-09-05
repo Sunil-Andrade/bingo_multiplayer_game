@@ -55,10 +55,10 @@ func (gameState *GameState) run(game *Game) {
 				PayLoad: map[string]any{
 					"name":   player.playerName,
 					"marked": marked,
-					"score": pl.toWin,
+					"score":  pl.toWin,
 				},
 			}
-
+			fmt.Println("Running")
 			pl.conn.WriteJSON(name)
 			if pl.playerId != player.playerId {
 				err := pl.conn.WriteJSON(name)
