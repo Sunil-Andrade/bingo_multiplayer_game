@@ -18,16 +18,15 @@ func createGame(w http.ResponseWriter, r *http.Request) {
 	defer conn.Close()
 
 	_, message, err := conn.ReadMessage()
+
 	var g Res
 	json.Unmarshal(message, &g)
 
-	maxPlayers := 0
-	if val, ok := g.PayLoad["playercount"].(int); ok {
-		maxPlayers = val
-	} else {
-		maxPlayers = 2
+	maxPlayers := 2
+	if val, ok := g.PayLoad["playercount"].(float64); ok {
+		maxPlayers = int(val)
 	}
-
+	fmt.Println(maxPlayers)
 	id := generateRandom()
 
 	gameState := &GameState{
